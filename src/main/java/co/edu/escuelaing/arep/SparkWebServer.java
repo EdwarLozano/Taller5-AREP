@@ -11,24 +11,24 @@ public class SparkWebServer {
         get("/sin/:valor", (req, res) -> {
            double valor = Double.parseDouble(req.params(":valor"));
            double solucion = Math.sin(valor);
-           return "{\"solucion\": " + solucion + "}";
+           return "Solución: " + solucion ;
         });
 
         get("/cos/:valor", (req, res) -> {
             double valor = Double.parseDouble(req.params(":valor"));
             double solucion = Math.cos(valor);
-            return "{\"solucion\": " + solucion + "}";
+            return "Solución: " + solucion ;
         });
 
         get("/pal/:valor", (req, res) -> {
             String valor = req.params(":valor");
-            return "{\"solucion\": " + esPalindromo(valor) + "}";
+            return "Solución: " + esPalindromo(valor) ;
         });
 
         get("/mag/:valorX/:valorY", (req, res) -> {
             double valorX = Double.parseDouble(req.params(":valorX"));
             double valorY = Double.parseDouble(req.params(":valorY"));
-            return "{\"solucion\": " + vectorMagnitude(valorX, valorY) + "}";
+            return "Solución: " + vectorMagnitude(valorX, valorY);
         });
     }
 
