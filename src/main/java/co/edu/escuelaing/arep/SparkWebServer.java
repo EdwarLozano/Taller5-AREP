@@ -8,30 +8,28 @@ public class SparkWebServer {
     public static void main(String... args){
         port(getPort());
         get("hello", (req,res) -> "Hello Docker!");
-        get("/sin/valor", (req, res) -> {
-           double valor = Double.parseDouble(req.params("valor"));
+        get("/sin/:valor", (req, res) -> {
+           double valor = Double.parseDouble(req.params(":valor"));
            double solucion = Math.sin(valor);
            return "{\"solucion\": " + solucion + "}";
         });
 
-        get("/cos/valor", (req, res) -> {
-            double valor = Double.parseDouble(req.params("valor"));
+        get("/cos/:valor", (req, res) -> {
+            double valor = Double.parseDouble(req.params(":valor"));
             double solucion = Math.cos(valor);
             return "{\"solucion\": " + solucion + "}";
         });
 
-        get("/pal/valor", (req, res) -> {
-            String valor = req.params("valor");
+        get("/pal/:valor", (req, res) -> {
+            String valor = req.params(":valor");
             return "{\"solucion\": " + esPalindromo(valor) + "}";
         });
 
-        get("/mag/valorX/valorY", (req, res) -> {
-            double valorX = Double.parseDouble(req.params("valorX"));
-            double valorY = Double.parseDouble(req.params("valorY"));
+        get("/mag/:valorX/:valorY", (req, res) -> {
+            double valorX = Double.parseDouble(req.params(":valorX"));
+            double valorY = Double.parseDouble(req.params(":valorY"));
             return "{\"solucion\": " + vectorMagnitude(valorX, valorY) + "}";
         });
-
-        get("mag", (req, res) -> Double.valueOf(vectorMagnitude(Double.parseDouble(req.queryParams("x")), Double.parseDouble(req.queryParams("y")))).toString());
     }
 
     private static int getPort() {
