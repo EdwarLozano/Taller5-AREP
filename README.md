@@ -44,5 +44,10 @@
   ![img_8.png](img/img_8.png)
 
 ## Docker:
+Docker no funcionó correctamente en mi equipo, se quedó verificando credenciales: 
+![img.png](img/img10.png)
+
+Sin embargó se realizó el despliegue de la imágen a Docker cuando la aplicación funcionaba desde el enlace, sin formulario (Commit: 9650825b6167ecd26e5e7fdef511b45d1a0b96c8 llamado finalizado)
+![img.png](img/img11.png)
 
 
